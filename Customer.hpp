@@ -23,6 +23,11 @@ public:
         priority = iPriority;
         totalRunTime = 5*tickets;
     }
+
+    ~Customer()
+    {
+
+    }
     // GETTERS AND SETTERS (only relevant ones)
     //name
     std::string getName()
@@ -73,8 +78,6 @@ public:
         priority--;
     }
 
-
-    ~Customer()
 };
 
 #endif

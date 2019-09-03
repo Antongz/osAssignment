@@ -2,13 +2,17 @@
 #include <sstream>
 #include <iostream>
 #include <string>
+#include <vector>
 #include "Customer.hpp"
 
-std::vector<std::string> fileReader(std::string fileName)
+using namespace std;
+
+//gets the input from the input.txt file
+vector<string> fileReader(string fileName)
 {
-    std::vector<std::string> lines;
-    std::string = line;
-    std::ifstream myfile (fileName);
+    vector<string> lines;
+    string line;
+    ifstream myfile (fileName);
     //checks that the file was opened properly
     if (myfile.is_open())
     {
@@ -22,15 +26,43 @@ std::vector<std::string> fileReader(std::string fileName)
     }
     else
     {
-        std::cout << "Unable to open file" << '\n';
+        cout << "Unable to open file" << '\n';
     }
 
     return lines;
 }
 
-std::vector<customers> processInput(std::vector<std::string> input)
+//Sort the input into a vector of customers
+vector<Customer> processInput(vector<string> input)
 {
+    stringstream ss;
+    string name;
+    int arrivelTime;
+    int priority;
+    int currentAge;
+    int numTickets;
+    vector<Customer> customers;
+    //iterates through input vector, producing a new customer each time
+    //note: is input.size()-1 as last line doubled.
+    for (int i = 0; i < input.size()-1; i++)
+    {
+        //sorting input values
+        ss << input.at(i);
+        ss >> name;
+        // cout << name << ' ';
+        ss >> arrivelTime;
+        // cout << arrivelTime << ' ';
+        ss >> priority;
+        // cout << priority << ' ';
+        ss >> currentAge;
+        // cout << currentAge << ' ';
+        ss >> numTickets;
+        // cout << numTickets << ' ';
+        // cout << endl;
+        customers.push_back(Customer(name, arrivelTime, priority,currentAge, numTickets));
+    }
 
+    return customers;
 }
 
 int main(int argc, char const *argv[])
@@ -38,12 +70,11 @@ int main(int argc, char const *argv[])
     // Checks that the correct number of arguments are passed to the program
     if (argc != 2)
     {
-        std::cout << "No files or too many files were given" << '\n';
+        cout << "No files or too many files were given" << '\n';
         exit(1);
     }
-
-    std::vector<std::string> input = fileReader(to_string(argv[1]));
-
-
+    string fileName = argv[1];
+    vector<string> input = fileReader(fileName);
+    vector<Customer> customers = processInput(input);
     return 0;
 }
