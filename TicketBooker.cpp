@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include "Customer.hpp"
+#include "Queue.hpp"
 
 using namespace std;
 
@@ -33,19 +34,21 @@ vector<string> fileReader(string fileName)
 }
 
 //Sort the input into a vector of customers
-vector<Customer> processInput(vector<string> input)
+vector<Customer*> processInput(vector<string> input)
 {
-    stringstream ss;
+
     string name;
     int arrivelTime;
     int priority;
     int currentAge;
     int numTickets;
-    vector<Customer> customers;
+    vector<Customer*> customers;
+    Customer* temp;
     //iterates through input vector, producing a new customer each time
     //note: is input.size()-1 as last line doubled.
     for (int i = 0; i < input.size()-1; i++)
     {
+        stringstream ss;
         //sorting input values
         ss << input.at(i);
         ss >> name;
@@ -59,7 +62,8 @@ vector<Customer> processInput(vector<string> input)
         ss >> numTickets;
         // cout << numTickets << ' ';
         // cout << endl;
-        customers.push_back(Customer(name, arrivelTime, priority,currentAge, numTickets));
+        temp = new Customer(name, arrivelTime, priority,currentAge, numTickets);
+        customers.push_back(temp);
     }
 
     return customers;
@@ -75,6 +79,8 @@ int main(int argc, char const *argv[])
     }
     string fileName = argv[1];
     vector<string> input = fileReader(fileName);
-    vector<Customer> customers = processInput(input);
+    vector<Customer*> customers = processInput(input);
+    Queue basic_queue (customers);
+    basic_queue.printQueue();
     return 0;
 }

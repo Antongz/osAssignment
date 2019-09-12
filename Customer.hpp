@@ -41,6 +41,12 @@ public:
         return arrivelTime;
     }
 
+    //priority
+    int getPriority()
+    {
+        return priority;
+    }
+    
     //beginTime
     void setBeginTime(int begin)
     {
