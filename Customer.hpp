@@ -83,12 +83,6 @@ public:
     {
         priority--;
     }
-
-<<<<<<< Updated upstream
-=======
-
-    ~Customer();
->>>>>>> Stashed changes
 };
 
 #endif

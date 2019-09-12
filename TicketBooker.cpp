@@ -71,6 +71,7 @@ vector<Customer*> processInput(vector<string> input)
 
 int main(int argc, char const *argv[])
 {
+
     // Checks that the correct number of arguments are passed to the program
     if (argc != 2)
     {
@@ -81,9 +82,11 @@ int main(int argc, char const *argv[])
     vector<string> input = fileReader(fileName);
     vector<Customer*> customers = processInput(input);
     Queue basic_queue (customers);
+    
+    cout << endl << "Print Queue: " << endl;
     basic_queue.printQueue();
     
-    cout << basic_queue.weightedTimeCalc(false);
+    cout << endl << "Weight Time Test: " << basic_queue.weightedTimeCalc(false) << endl;
     
     
     

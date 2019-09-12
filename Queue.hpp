@@ -78,6 +78,32 @@ public:
         return weightedTimeQuantum;
     }
     
+    // Increments all elements age within Queue 2
+    void ageMechanismQ2() {
+        for (int i = 0; i < priority_queue.size(); i++) {
+            for (int j = 0; j < priority_queue[i].size(); j++) {
+                // Increments the age of each element
+                priority_queue[i][j] -> increaseAge();
+            }
+        }
+    }
+    
+    // Given priority specified, pop from the start; places at end
+    void moveEndQueue(int pre) {
+        // Places at end of queue
+        priority_queue[pre-1].push_back(priority_queue[pre-1][0]);
+        // Removes from front of queue
+        priority_queue[pre-1].erase(priority_queue[pre-1].begin());
+    }
+    
+    // Given priority specified, pop from the specified; places at new priority
+    void priorityShift(int prevPri, int newPri) {
+        // Places at end of queue
+        priority_queue[newPri-1].push_back(priority_queue[prevPri-1][0]);
+        // Removes from front of queue
+        priority_queue[prevPri-1].erase(priority_queue[prevPri-1].begin());
+    }
+    
     //Destructor - cleans up memory
     ~Queue()
     {
