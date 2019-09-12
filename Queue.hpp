@@ -49,7 +49,35 @@ public:
             }
         }
     }
-
+    
+    int weightedTimeCalc(bool queueNumber) {
+        int weightedTimeQuantum;
+        // Weighted Time Formula Q1
+        // ((8 − C's Priority No.) × 10 time units)/ 5
+        
+        // If false Queue 1
+        if (!queueNumber) {
+            // Priority 1
+            if (priority_queue[0].size() > 0) {
+                weightedTimeQuantum = 14;
+            }
+            // Priority 2
+            else if (priority_queue[1].size() > 0) {
+                weightedTimeQuantum = 12;
+            }
+            // Priority 3
+            else if (priority_queue[2].size() > 0){
+                weightedTimeQuantum = 10;
+            }
+        }
+        
+        // If true Queue 2
+        else {
+            weightedTimeQuantum = 100;
+        }
+        return weightedTimeQuantum;
+    }
+    
     //Destructor - cleans up memory
     ~Queue()
     {

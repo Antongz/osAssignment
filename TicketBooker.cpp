@@ -82,5 +82,11 @@ int main(int argc, char const *argv[])
     vector<Customer*> customers = processInput(input);
     Queue basic_queue (customers);
     basic_queue.printQueue();
+    
+    cout << basic_queue.weightedTimeCalc(false);
+    
+    
+    
+    
     return 0;
 }
