@@ -69,6 +69,8 @@ vector<Customer*> processInput(vector<string> input)
     return customers;
 }
 
+extern void operatingSystem();
+
 int main(int argc, char const *argv[])
 {
 
@@ -88,7 +90,7 @@ int main(int argc, char const *argv[])
     
     cout << endl << "Weight Time Test: " << basic_queue.weightedTimeCalc(false) << endl;
     
-    
+    operatingSystem();
     
     
     return 0;
