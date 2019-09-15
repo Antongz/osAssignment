@@ -10,14 +10,14 @@ private:
     {
         return (C1->getArrivelTime() < C2->getArrivelTime());
     }
-    sortByArrivalTime()
+    sortByArrivalTime(std::vector<Customer*> customers)
     {
-        std::stable_sort()
+        std::stable_sort(customers.begin(),customer.end(),comparison)
     }
 public:
-    OperatingSystem(customers)
+    OperatingSystem(std::vector<Customer*> customers)
     {
-
+        sortByArrivalTime(customers);
     }
     ~OperatingSystem();
 };
