@@ -40,6 +40,31 @@ public:
             }
         }
     }
+    
+    
+    
+    // Prints all customer details according to scheduling
+    void printSchedule(vector<vector<string>> input) {
+        // First Line Output
+        cout << "name   arrival   end   ready   running   waiting" << endl;
+        for (int i = 0; i < input.size(); i++) {
+            for (int j = 0; j < 6; j++) {
+                // Name
+                if (j == 0) {
+                    cout << input[i][j];
+                    continue;
+                }
+                // Spaces needed
+                for (int g = 0; g < (10 - input[i][j].length();); g++) {
+                    cout << " ";
+                }
+                // Following inputiables
+                cout << input[i][j];
+            }
+            cout << endl;
+        }
+    }
+
     ~OperatingSystem();
 };
 
