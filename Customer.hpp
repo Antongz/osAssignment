@@ -46,7 +46,7 @@ public:
     {
         return priority;
     }
-    
+
     //beginTime
     void setBeginTime(int begin)
     {

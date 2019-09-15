@@ -69,17 +69,6 @@ vector<Customer*> processInput(vector<string> input)
     return customers;
 }
 
-// Test Abstraction file
-void operatingSystem(Queue basic_queue) {
-    
-    cout << endl << "Print Queue: " << endl;
-    basic_queue.printQueue();
-    
-    
-    
-    cout << endl << endl << endl << endl << endl;
-    
-}
 
 int main(int argc, char const *argv[]) {
     // Checks that the correct number of arguments are passed to the program
@@ -90,9 +79,5 @@ int main(int argc, char const *argv[]) {
     string fileName = argv[1];
     vector<string> input = fileReader(fileName);
     vector<Customer*> customers = processInput(input);
-    Queue basic_queue (customers);
-    
-    // Operating System file abstraction
-    operatingSystem(basic_queue);
     return 0;
 }
