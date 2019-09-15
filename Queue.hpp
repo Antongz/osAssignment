@@ -16,15 +16,32 @@ public:
         }
     }
 
-    Queue(std::vector<Customer*> customers) {
+    Queue(std::vector<Customer*> customers)
+    {
         //creates a new vector for each priority
         std::vector<Customer*> empty;
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 7; i++)
+        {
             priority_queue.push_back(empty);
         }
 
         //adds customers to the priority queue based on their priority
-        //doesn't care for arrivel time at the moment
+        //doesn't care for arrival time at the moment
+        for (int i = 0; i < customers.size(); i++)
+        {
+            priority_queue[customers[i]->getPriority()-1].push_back(customers[i]);
+        }
+    }
+
+    //Adds a single customer to the priority Queue
+    void addCustomer(Customer* customer)
+    {
+        priority_queue[customer->getPriority()-1].push_back(customer);
+    }
+
+    //Adds multiple customers to the priority queue
+    void addCustomers (std::vector<Customer*> customer)
+    {
         for (int i = 0; i < customers.size(); i++) {
             priority_queue[customers[i]->getPriority()-1].push_back(customers[i]);
         }
@@ -44,6 +61,7 @@ public:
         }
     }
 
+    //calculates the length of time a customer can spend in the CPU
     int weightedTimeCalc(bool queueNumber)
     {
         int weightedTimeQuantum;

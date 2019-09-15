@@ -38,7 +38,7 @@ vector<Customer*> processInput(vector<string> input)
 {
 
     string name;
-    int arrivelTime;
+    int arrivalTime;
     int priority;
     int currentAge;
     int numTickets;
@@ -53,8 +53,8 @@ vector<Customer*> processInput(vector<string> input)
         ss << input.at(i);
         ss >> name;
         // cout << name << ' ';
-        ss >> arrivelTime;
-        // cout << arrivelTime << ' ';
+        ss >> arrivalTime;
+        // cout << arrivalTime << ' ';
         ss >> priority;
         // cout << priority << ' ';
         ss >> currentAge;
@@ -62,7 +62,7 @@ vector<Customer*> processInput(vector<string> input)
         ss >> numTickets;
         // cout << numTickets << ' ';
         // cout << endl;
-        temp = new Customer(name, arrivelTime, priority,currentAge, numTickets);
+        temp = new Customer(name, arrivalTime, priority,currentAge, numTickets);
         customers.push_back(temp);
     }
 

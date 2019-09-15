@@ -7,7 +7,7 @@ class Customer
 {
 private:
     std::string name;
-    int arrivelTime;
+    int arrivalTime;
     int age;
     int priority;
     int beginTime;
@@ -16,10 +16,10 @@ private:
 public:
     //i = input
     //Constructor
-    Customer(std::string iName, int iArrivelTime, int iPriority, int iAge, int tickets)
+    Customer(std::string iName, int iarrivalTime, int iPriority, int iAge, int tickets)
     {
         name = iName;
-        arrivelTime = iArrivelTime;
+        arrivalTime = iarrivalTime;
         priority = iPriority;
         totalRunTime = 5*tickets;
     }
@@ -35,10 +35,10 @@ public:
         return name;
     }
 
-    //arrivelTime;
-    int getArrivelTime()
+    //arrivalTime;
+    int getarrivalTime()
     {
-        return arrivelTime;
+        return arrivalTime;
     }
 
     //priority
