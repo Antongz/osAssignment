@@ -69,15 +69,22 @@ vector<Customer*> processInput(vector<string> input)
     return customers;
 }
 
-extern void operatingSystem();
+// Test Abstraction file
+void operatingSystem(Queue basic_queue) {
+    
+    cout << endl << "Print Queue: " << endl;
+    basic_queue.printQueue();
+    
+    
+    
+    cout << endl << endl << endl << endl << endl;
+    
+}
 
-int main(int argc, char const *argv[])
-{
-
+int main(int argc, char const *argv[]) {
     // Checks that the correct number of arguments are passed to the program
-    if (argc != 2)
-    {
-        cout << "No files or too many files were given" << '\n';
+    if (argc != 2) {
+        cout << "No files or too many files were given." << '\n';
         exit(1);
     }
     string fileName = argv[1];
@@ -85,13 +92,7 @@ int main(int argc, char const *argv[])
     vector<Customer*> customers = processInput(input);
     Queue basic_queue (customers);
     
-    cout << endl << "Print Queue: " << endl;
-    basic_queue.printQueue();
-    
-    cout << endl << "Weight Time Test: " << basic_queue.weightedTimeCalc(false) << endl;
-    
-    operatingSystem();
-    
-    
+    // Operating System file abstraction
+    operatingSystem(basic_queue);
     return 0;
 }

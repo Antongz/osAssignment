@@ -4,34 +4,28 @@
 #include "Customer.hpp"
 #include <iostream>
 
-class Queue
-{
+class Queue {
 private:
     std::vector<std::vector<Customer*>> priority_queue;
 public:
-    Queue()
-    {
+    Queue() {
         //creates a new vector for each priority
         std::vector<Customer*> empty;
-        for (int i = 0; i < 7; i++)
-        {
+        for (int i = 0; i < 7; i++) {
             priority_queue.push_back(empty);
         }
     }
 
-    Queue(std::vector<Customer*> customers)
-    {
+    Queue(std::vector<Customer*> customers) {
         //creates a new vector for each priority
         std::vector<Customer*> empty;
-        for (int i = 0; i < 7; i++)
-        {
+        for (int i = 0; i < 7; i++) {
             priority_queue.push_back(empty);
         }
 
         //adds customers to the priority queue based on their priority
         //doesn't care for arrivel time at the moment
-        for (int i = 0; i < customers.size(); i++)
-        {
+        for (int i = 0; i < customers.size(); i++) {
             priority_queue[customers[i]->getPriority()-1].push_back(customers[i]);
         }
     }
