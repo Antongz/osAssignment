@@ -10,6 +10,7 @@ private:
     int arrivalTime;
     int age;
     int priority;
+    int ticketsRemaining;
     int beginTime;
     int endTime;
     int totalRunTime;
@@ -21,7 +22,9 @@ public:
         name = iName;
         arrivalTime = iarrivalTime;
         priority = iPriority;
+        ticketsRemaining = tickets;
         totalRunTime = 5*tickets;
+        beginTime = -1;
     }
 
     ~Customer()
@@ -47,6 +50,12 @@ public:
         return priority;
     }
 
+    //ticketsRemaining
+    int getRemainingTickets()
+    {
+        return ticketsRemaining;
+    }
+
     //beginTime
     void setBeginTime(int begin)
     {
@@ -67,11 +76,21 @@ public:
         return endTime;
     }
 
+    //totalRunTime
+    int getTotalRun()
+    {
+        return totalRunTime;
+    }
+
     //OTHER USEFUL FUNCTIONS
     //increases age by 1
     void increaseAge()
     {
         age++;
+    }
+    void resetAge()
+    {
+        age = 0;
     }
 
     //Priority promotion and demotion
@@ -82,6 +101,12 @@ public:
     void demote()
     {
         priority--;
+    }
+
+    //Decrease No. tickets
+    void decreaseTickets(int n)
+    {
+        ticketsRemaining -= n;
     }
 };
 
