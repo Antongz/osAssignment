@@ -235,11 +235,11 @@ public:
             // Assigning Values
             std::vector<int> verticalVec(5);
             returnVec.push_back(verticalVec);
-            returnVec[i][0] = std::to_string(output[i]->getArrivalTime()); // Arrival
-            returnVec[i][1] = std::to_string(output[i]->getEndTime()); // End
-            returnVec[i][2] = std::to_string(output[i]->getBeginTime()); // Ready
-            returnVec[i][3] = std::to_string(output[i]->getTotalRun()); // Running
-            returnVec[i][4] = std::to_string(output[i]->getEndTime()-output[i]->getBeginTime()-output[i]->getTotalRun()); // Waiting
+            returnVec[i][0] = output[i]->getArrivalTime(); // Arrival
+            returnVec[i][1] = output[i]->getEndTime(); // End
+            returnVec[i][2] = output[i]->getBeginTime(); // Ready
+            returnVec[i][3] = output[i]->getTotalRun(); // Running
+            returnVec[i][4] = output[i]->getEndTime()-output[i]->getBeginTime()-output[i]->getTotalRun(); // Waiting
         }
 
         return returnVec;
