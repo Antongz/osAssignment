@@ -9,7 +9,7 @@
 
 class Queue {
 private:
-    std::vector<std::vector<Customer*>> priority_queue;
+    std::vector<std::vector<Customer*> > priority_queue;
 public:
     Queue() {
         //creates a new vector for each priority

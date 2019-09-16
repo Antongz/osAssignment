@@ -221,10 +221,10 @@ public:
     }
 
     // Prepares all member variables and assigns them to a 2-Dimensional Vector
-    std::vector<std::vector<std::string>> schedulePrep()
+    std::vector<std::vector<std::string> > schedulePrep()
     {
         int size = output.size();
-        std::vector<std::vector<std::string>> returnVec;
+        std::vector<std::vector<std::string> > returnVec;
 
         for (int i = 0; i < size; i++) {
             // Assigning Values
@@ -242,7 +242,7 @@ public:
     }
 
     // Prints all customer details according to scheduling
-    void printSchedule(std::vector<std::vector<std::string>> input)
+    void printSchedule(std::vector<std::vector<std::string> > input)
     {
         // First Line Output
         std::cout << "name   arrival   end   ready   running   waiting" << std::endl;
