@@ -4,12 +4,17 @@
 #ifndef OPERATING_SYSTEM
 #define OPERATING_SYSTEM
 
-#include <algorithm>
-#include <vector>
-#include <string>
-#include <iostream>
 #include "Queue.hpp"
 #include "Customer.hpp"
+
+#include <algorithm>
+#include <fstream>
+#include <sstream>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <cstddef>
+
 
 class OperatingSystem
 {

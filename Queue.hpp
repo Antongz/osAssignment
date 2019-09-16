@@ -5,7 +5,13 @@
 #define QUEUE_H
 
 #include "Customer.hpp"
+#include <algorithm>
+#include <fstream>
+#include <sstream>
 #include <iostream>
+#include <string>
+#include <vector>
+#include <cstddef>
 
 class Queue {
 private:

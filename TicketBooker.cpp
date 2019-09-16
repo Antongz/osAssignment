@@ -1,11 +1,14 @@
 //Rory Martin a1740203
 //William Godfrey a1743033
 
+#include <algorithm>
 #include <fstream>
 #include <sstream>
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cstddef>
+
 #include "Customer.hpp"
 #include "Queue.hpp"
 #include "OperatingSystem.hpp"

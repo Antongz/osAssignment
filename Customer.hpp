@@ -4,7 +4,13 @@
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 
+#include <algorithm>
+#include <fstream>
+#include <sstream>
+#include <iostream>
 #include <string>
+#include <vector>
+#include <cstddef>
 
 class Customer
 {
