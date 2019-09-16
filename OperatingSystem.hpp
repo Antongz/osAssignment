@@ -41,7 +41,24 @@ public:
         }
     }
     
-    
+    // Prepares all member variables and assigns them to a 2-Dimensional Vector
+    vector<vector<string>> schedulePrep(vector<Customer*> Customers) {
+        int size = Customers.size();
+        vector<vector<string>> returnVec;
+        
+        for (int i = 0; i < size; i++) {
+            // Assigning Values
+            vector<string> verticalVec(6);
+            returnVec.push_back(verticalVec);
+            returnVec[i][0] = stoi(getName()); // Name
+            returnVec[i][1] = stoi(getarrivalTime()); // Arrival
+            returnVec[i][2] = stoi(getEndTime()); // End
+            returnVec[i][3] = stoi(getBeginTime()); // Ready
+            returnVec[i][4] = stoi(getTotalRun()); // Running
+            returnVec[i][5] = stoi((getEndTime()-getBeginTime()-getTotalRun()); // Waiting
+        }
+        return returnVec;
+    }
     
     // Prints all customer details according to scheduling
     void printSchedule(vector<vector<string>> input) {
