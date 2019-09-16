@@ -168,7 +168,18 @@ public:
             }
         }
     }
-
+    
+    // Should arrival happen during that iteration;
+    void checkArrivalTime() {
+        int i = 0;
+        while (!customer.empty() && customers[i]->getarrivalTime() < current_time) {
+            // Adds new arrival to the prirorty queue & removes start from customer
+            priority_queue.addCustomer(customer[i]);
+            customers.erase(customers.begin());
+        }
+    }
+    
+    
     void runOS()
     {
 

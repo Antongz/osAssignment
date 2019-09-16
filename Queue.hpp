@@ -43,9 +43,9 @@ public:
     //Adds multiple customers to the priority queue
     void addCustomers (std::vector<Customer*> customer)
     {
-        for (int i = 0; i < customers.size(); i++)
+        for (int i = 0; i < customer.size(); i++)
         {
-            priority_queue[customers[i]->getPriority()-1].push_back(customers[i]);
+            priority_queue[customer[i]->getPriority()-1].push_back(customer[i]);
         }
     }
 
