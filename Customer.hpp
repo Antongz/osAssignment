@@ -50,6 +50,12 @@ public:
         return priority;
     }
 
+    //age
+    int getAge()
+    {
+        return age;
+    }
+
     //ticketsRemaining
     int getRemainingTickets()
     {
@@ -94,11 +100,11 @@ public:
     }
 
     //Priority promotion and demotion
-    void promote()
+    void demote()
     {
         priority++;
     }
-    void demote()
+    void promote()
     {
         priority--;
     }

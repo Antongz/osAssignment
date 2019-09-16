@@ -11,7 +11,8 @@ public:
     Queue() {
         //creates a new vector for each priority
         std::vector<Customer*> empty;
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 7; i++)
+        {
             priority_queue.push_back(empty);
         }
     }
@@ -42,9 +43,38 @@ public:
     //Adds multiple customers to the priority queue
     void addCustomers (std::vector<Customer*> customer)
     {
-        for (int i = 0; i < customers.size(); i++) {
+        for (int i = 0; i < customers.size(); i++)
+        {
             priority_queue[customers[i]->getPriority()-1].push_back(customers[i]);
         }
+    }
+
+    //Finds the head element of Queue 1
+    Customer* findQ1Head()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            if (!priority_queue[i].empty())
+            {
+                return priority_queue[i][0];
+            }
+        }
+
+        return nullptr;
+    }
+
+    //Finds the head element of Queue 2
+    Customer* findQ2Head()
+    {
+        for (int i = 3; i < 7; i++)
+        {
+            if (!priority_queue[i].empty())
+            {
+                return priority_queue[i][0];
+            }
+        }
+
+        return nullptr;
     }
 
     //prints the name and priority of everything in the queue
@@ -59,41 +89,6 @@ public:
                 //std::cout << i << '\n';
             }
         }
-    }
-
-    //calculates the length of time a customer can spend in the CPU
-    int weightedTimeCalc(bool queueNumber)
-    {
-        int weightedTimeQuantum;
-        // Weighted Time Formula Q1
-        // ((8 − C's Priority No.) × 10 time units)
-
-        // If false Queue 1
-        if (!queueNumber)
-        {
-            // Priority 1
-            if (priority_queue[0].size() > 0)
-            {
-                weightedTimeQuantum = 70;
-            }
-            // Priority 2
-            else if (priority_queue[1].size() > 0)
-            {
-                weightedTimeQuantum = 60;
-            }
-            // Priority 3
-            else if (priority_queue[2].size() > 0)
-            {
-                weightedTimeQuantum = 50;
-            }
-        }
-
-        // If true Queue 2
-        else
-        {
-            weightedTimeQuantum = 100;
-        }
-        return weightedTimeQuantum;
     }
 
     // Increments all elements age within Queue 2
@@ -126,6 +121,22 @@ public:
         // Removes from front of queue
         priority_queue[prevPri-1].erase(priority_queue[prevPri-1].begin());
     }
+
+    // Given priority specified, pop from the specified; places at new priority
+    void queueShift()
+    {
+        // Places at end of queue
+        priority_queue[2].insert(priority_queue[3].begin(), priority_queue[2][0]);
+        // Removes from front of queue
+        priority_queue[2].erase(priority_queue[2].begin());
+    }
+
+    //removes element from Queue
+    void removeFromQueue(int priority)
+    {
+        priority_queue[priority-1].erase(priority_queue[priority-1].begin());
+    }
+
 
     //Destructor - cleans up memory
     ~Queue()
