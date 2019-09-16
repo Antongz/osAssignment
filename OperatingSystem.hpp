@@ -226,21 +226,20 @@ public:
     }
 
     // Prepares all member variables and assigns them to a 2-Dimensional Vector
-    std::vector<std::vector<std::string> > schedulePrep()
+    std::vector<std::vector<int> > schedulePrep()
     {
         int size = output.size();
-        std::vector<std::vector<std::string> > returnVec;
+        std::vector<std::vector<int> > returnVec;
 
         for (int i = 0; i < size; i++) {
             // Assigning Values
-            std::vector<std::string> verticalVec(6);
+            std::vector<int> verticalVec(5);
             returnVec.push_back(verticalVec);
-            returnVec[i][0] = output[i]->getName(); // Name
-            returnVec[i][1] = std::to_string(output[i]->getArrivalTime()); // Arrival
-            returnVec[i][2] = std::to_string(output[i]->getEndTime()); // End
-            returnVec[i][3] = std::to_string(output[i]->getBeginTime()); // Ready
-            returnVec[i][4] = std::to_string(output[i]->getTotalRun()); // Running
-            returnVec[i][5] = std::to_string(output[i]->getEndTime()-output[i]->getBeginTime()-output[i]->getTotalRun()); // Waiting
+            returnVec[i][0] = std::to_string(output[i]->getArrivalTime()); // Arrival
+            returnVec[i][1] = std::to_string(output[i]->getEndTime()); // End
+            returnVec[i][2] = std::to_string(output[i]->getBeginTime()); // Ready
+            returnVec[i][3] = std::to_string(output[i]->getTotalRun()); // Running
+            returnVec[i][4] = std::to_string(output[i]->getEndTime()-output[i]->getBeginTime()-output[i]->getTotalRun()); // Waiting
         }
 
         return returnVec;
@@ -258,7 +257,7 @@ public:
                 // Name
                 if (j == 0)
                 {
-                    std::cout << input[i][j];
+                    std::cout << output[i]->getName();
                     continue;
                 }
                 // Spaces needed
