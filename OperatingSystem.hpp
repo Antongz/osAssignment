@@ -246,22 +246,35 @@ public:
     }
 
     // Prints all customer details according to scheduling
-    void printSchedule(std::vector<std::vector<std::string> > input)
+    void printSchedule(std::vector<std::vector<int> > input)
     {
         // First Line Output
         std::cout << "name   arrival   end   ready   running   waiting" << std::endl;
         for (int i = 0; i < input.size(); i++)
         {
+            // Name
+            std::cout << output[i]->getName();
             for (int j = 0; j < 6; j++)
             {
-                // Name
-                if (j == 0)
+                unsigned int numDigits = 0;
+
+                int n = input[i][j];
+
+                if (n == 0)
                 {
-                    std::cout << output[i]->getName();
-                    continue;
+                    numDigits = 1;
                 }
+                else
+                {
+                    while (n)
+                    {
+                        numDigits++;
+                        n /= 10;
+                    }
+                }
+
                 // Spaces needed
-                for (int g = 0; g < (10 - input[i][j].length()); g++)
+                for (int g = 0; g < (10 - numDigits); g++)
                 {
                     std::cout << " ";
                 }
@@ -274,9 +287,16 @@ public:
 
     void runOS()
     {
+        std::cout << "PePrint" << '\n';
+        std::cout << "Time: " << current_time << '\n';
+        priority_queue.printQueue();
+
         while (Q1Head != NULL || Q2Head != NULL)
         {
             runCPUIteration();
+            std::cout << "Print" << '\n';
+            std::cout << "Time: " << current_time << '\n';
+            priority_queue.printQueue();
             priority_queue.checkForPromotionQ2();
             Q2Head = priority_queue.findQ2Head();
             checkForArrivals();

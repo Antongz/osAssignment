@@ -20,7 +20,7 @@ vector<string> fileReader(string fileName)
 {
     vector<string> lines;
     string line;
-    ifstream myfile (fileName);
+    ifstream myfile ("input.txt", std::ifstream::in);
     //checks that the file was opened properly
     if (myfile.is_open())
     {
