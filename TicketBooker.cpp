@@ -1,3 +1,6 @@
+//Rory Martin a1740203
+//William Godfrey a1743033
+
 #include <fstream>
 #include <sstream>
 #include <iostream>
@@ -5,6 +8,7 @@
 #include <vector>
 #include "Customer.hpp"
 #include "Queue.hpp"
+#include "OperatingSystem.hpp"
 
 using namespace std;
 
@@ -52,16 +56,10 @@ vector<Customer*> processInput(vector<string> input)
         //sorting input values
         ss << input.at(i);
         ss >> name;
-        // cout << name << ' ';
         ss >> arrivalTime;
-        // cout << arrivalTime << ' ';
         ss >> priority;
-        // cout << priority << ' ';
         ss >> currentAge;
-        // cout << currentAge << ' ';
         ss >> numTickets;
-        // cout << numTickets << ' ';
-        // cout << endl;
         temp = new Customer(name, arrivalTime, priority,currentAge, numTickets);
         customers.push_back(temp);
     }
@@ -79,5 +77,7 @@ int main(int argc, char const *argv[]) {
     string fileName = argv[1];
     vector<string> input = fileReader(fileName);
     vector<Customer*> customers = processInput(input);
+    OperatingSystem OS (customers);
+    OS.runOS();
     return 0;
 }

@@ -1,3 +1,6 @@
+//Rory Martin a1740203
+//William Godfrey a1743033
+
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 
@@ -22,6 +25,7 @@ public:
         name = iName;
         arrivalTime = iarrivalTime;
         priority = iPriority;
+        age = iAge;
         ticketsRemaining = tickets;
         totalRunTime = 5*tickets;
         beginTime = -1;
@@ -39,7 +43,7 @@ public:
     }
 
     //arrivalTime;
-    int getarrivalTime()
+    int getArrivalTime()
     {
         return arrivalTime;
     }
@@ -94,6 +98,12 @@ public:
     {
         age++;
     }
+    //decrease age by 1
+    void decreaseAge()
+    {
+        age--;
+    }
+    //sets age to zero
     void resetAge()
     {
         age = 0;
