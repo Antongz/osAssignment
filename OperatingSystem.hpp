@@ -107,7 +107,7 @@ public:
     void runCPUIteration()
     {
         //Checks if there is anything in Queue 1
-        if (Q1Head != null)
+        if (Q1Head != NULL)
         {
             //checks if the customer has been assigned a beginTime
             if (Q1Head->getBeginTime() == -1)
@@ -146,7 +146,7 @@ public:
             }
         }
         //If Queue 1 empty and Queue 2 not
-        else if (Q2Head != null)
+        else if (Q2Head != NULL)
         {
             //checks if the customer has been assigned a beginTime
             if (Q2Head->getBeginTime() == -1)
@@ -274,7 +274,7 @@ public:
 
     void runOS()
     {
-        while (Q1Head != null || Q2Head != null)
+        while (Q1Head != NULL || Q2Head != NULL)
         {
             runCPUIteration();
             priority_queue.checkForPromotionQ2();
@@ -283,7 +283,7 @@ public:
             Q1Head = priority_queue.findQ1Head();
 
             //checks for customers arriving after queue is empty
-            if (Q1Head == null && Q2Head == null && !customers.empty())
+            if (Q1Head == NULL && Q2Head == NULL && !customers.empty())
             {
                 //checks which queue the customer belongs in
                 if (customers[0]->getPriority() <= 3)

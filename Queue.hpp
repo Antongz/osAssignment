@@ -90,7 +90,7 @@ public:
             }
         }
 
-        return null;
+        return NULL;
     }
 
     //Finds the head element of Queue 2
@@ -100,7 +100,7 @@ public:
         {
             return priority_queue[3][0];
         }
-        return null;
+        return NULL;
     }
 
     //prints the name and priority of everything in the queue
